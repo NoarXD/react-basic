@@ -1,5 +1,4 @@
 import './Transaction.css'
-import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 
 const Item = ({title, amount})=>{
@@ -11,16 +10,13 @@ Item.propTypes={
     amount:PropTypes.number.isRequired
 }
 
-const Transaction = () => {
-    const data = [
-        {title:'huightrui',amount:677},
-        {title:'uhtu',amount:8765}
-    ]
+const Transaction = (e) => {
+    const {items} = e
     return (
         <>
             <ul className='list-item'>
-                {data.map((e)=>{
-                    return <Item {...e} key={uuidv4()}/>
+                {items.map((e, index)=>{
+                    return <Item {...e} key={index+1}/>
                 })}
             </ul>
         </>
