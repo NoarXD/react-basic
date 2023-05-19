@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&family=Kanit&family=Sriracha&display=swap');
 * {
   box-sizing: border-box;
+  font-family: 'Kanit', sans-serif;
 }
 body {
   background-color: #F7F7F7;

@@ -1,8 +1,12 @@
+// import { useContext } from 'react';
+// import DataContext from '../Data/DataContext';
 import './Transaction.css'
 import PropTypes from 'prop-types';
 
 const Item = ({title, amount})=>{
-    return <li>{title} <span>-{amount}</span></li>
+    const status = amount < 0 ? 'expense':'income'
+    const symbol = amount < 0 ? '':'+'
+    return <li className={status}>{title}<span>{symbol}{amount}</span></li>
 }
 
 Item.propTypes={

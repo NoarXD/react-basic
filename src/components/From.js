@@ -1,8 +1,9 @@
 import './From.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 const From = (props)=>{
     const [title,setTitle] = useState('')
     const [amount,setAmount] = useState(0)
+    const [FromValid,setFromValid] = useState(false)
 
     const inputTitle = (e)=>{
         setTitle(e.target.value)
@@ -20,6 +21,10 @@ const From = (props)=>{
         setTitle('')
         setAmount(0)
     }
+    useEffect(()=>{
+        const CheckData = title.trim().length>0 && amount!==0
+        setFromValid(CheckData)
+    },[title, amount])
     return (
         <div>
             <form onSubmit={saveItem}>
@@ -32,7 +37,7 @@ const From = (props)=>{
                     <input type='number' onChange={inputAmount} value={amount}></input>
                 </div>
                 
-                    <button type='submit' className='btn'>Submit</button>
+                    <button type='submit' className='btn' disabled={!FromValid}>Submit</button>
                 
             </form>
         </div>
